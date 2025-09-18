@@ -38,12 +38,13 @@ public class DictionaryView extends Application  {
         Label text = new Label("Type Word to search : ");
         TextField input = new TextField();  // for typing word
         Button searchButton = new Button("Search");
+        Button clearButton = new Button ("Clear ");
         Label result = new Label();  //display meaning
 
 
 
 
-        // Button action
+        //  Search Button action
         searchButton.setOnAction(e -> {
             String word = input.getText().trim();
             String meaning = controller.searchWord(word);
@@ -56,11 +57,17 @@ public class DictionaryView extends Application  {
 
         });
 
+        // clear button action
+        clearButton.setOnAction(e-> {
+            input.clear();
+            result.setText("");
+        });
+
         //layout
         FlowPane componentGroup = new FlowPane();
         componentGroup.setHgap(30);
         componentGroup.setVgap(30);
-        componentGroup.getChildren().addAll(text, input, searchButton, result);
+        componentGroup.getChildren().addAll(text, input, searchButton,clearButton, result);
 
 
 
