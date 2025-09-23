@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.Pet;
 
@@ -33,7 +34,10 @@ public class PetView extends Application {
     }
 
     public void render() {
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.setFill(Color.DIMGREY);
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        //gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.drawImage(petImage,
                 model.getX() - model.getSize() / 2,
                 model.getY() - model.getSize() / 2,
