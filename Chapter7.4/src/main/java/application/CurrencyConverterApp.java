@@ -34,7 +34,7 @@ public class CurrencyConverterApp {
                 em.persist(new Currency("THB", "Thai Baht", 32.14));
             }
             em.getTransaction().commit();
-            System.out.println("✅ Initial currencies are ready in the database.");
+            System.out.println("Initial currencies are ready in the database.");
 
             // Step 2: Read user input
             Scanner scanner = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class CurrencyConverterApp {
                         .setParameter("abbr", targetAbbr)
                         .getSingleResult();
             } catch (NoResultException e) {
-                System.out.println("❌ One or both currency abbreviations not found. Please check and try again.");
+                System.out.println("One or both currency abbreviations not found. Please check and try again.");
                 return;
             }
 
@@ -74,7 +74,7 @@ public class CurrencyConverterApp {
             TransactionDao transactionDAO = new TransactionDao(em);
             Transaction transaction = new Transaction(source, target, amount, result);
             transactionDAO.saveTransaction(transaction);
-            System.out.println("✅ Transaction saved successfully to the database.");
+            System.out.println("Transaction saved successfully to the database.");
 
         } catch (Exception e) {
             e.printStackTrace();
